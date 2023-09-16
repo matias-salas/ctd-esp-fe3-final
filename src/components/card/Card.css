@@ -1,46 +1,104 @@
+/* Card.css */
+
 .card {
-    margin: 0 10px 18px 10px;
+    margin: 10px;
     padding: 14px 16px;
     border-radius: 14px;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
-    background: #878888;
+    background: #ffffff;
     width: 290px;
-    height: 280px;
-}
-
-.dark-card {
+    height: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .card:hover {
+    background: #f0f0f0;
+    transform: translateY(-5px);
+  }
+  
+  .dark-card {
     background: #424949;
-}
-
-.title-btnFav {
+    color: #ffffff !important;
+  }
+  
+  .title-btnFav {
     display: flex;
     justify-content: center;
-}
-
-.title-btnFav button {
+    margin-top: 16px;
+  }
+  
+  .title-btnFav button {
     margin-left: 15px;
-}
-
-.content-card {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .title-btnFav button:hover {
+    transform: scale(1.2);
+  }
+  
+  .content-card {
     margin-top: 12px;
-}
-
-.more-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card_link {
+    text-decoration: none;
+    color: #a4bb03;
+    transition: color 0.3s;
+  }
+  
+  .card_link:hover {
+    color: #bbaf03;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .more-info {
     margin-top: 14px;
-}
-
-.img-dentista {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .more-info:hover {
+    color: #0056b3;
+  }
+  
+  .img-dentista {
     width: 120px;
+    height: 120px;
     border-radius: 50%;
-    position: relative;
-    left: 14px;
-}
-
-.btn-fav {
+    object-fit: cover;
+  }
+  
+  .btn-fav {
     font-size: 25px;
-    position: relative;
-    left: 44px;
-}
+    color: #ff0000;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .btn-fav:hover {
+    color: #ff3333;
+  }
+  

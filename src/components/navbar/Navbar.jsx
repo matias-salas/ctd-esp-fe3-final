@@ -1,31 +1,35 @@
-import React from 'react'
-import { Global } from '../../helpers/Global'
-import { useAppContext } from '../../hooks/useAppContext'
-import { Link, NavLink } from 'react-router-dom'
-import './Navbar.css'
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../../assets/img/kundalini_circle.png';
+import { useAppContext } from '../../hooks/useAppContext';
+import './Navbar.css';
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
-const Navbar = () => {
-  const { state, dispatch } = useAppContext()
+const Header = () => {
+  const { state, dispatch } = useAppContext();
 
   const changeTheme = () => {
-    dispatch({ type: Global.actionType[0].TOGGLE_THEME })
-    localStorage.theme = JSON.stringify(!state.theme)
-  }
+    dispatch({ type: 'toggle' }); // Using the action type directly as a string
+    localStorage.theme = JSON.stringify(!state.theme);
+  };
 
   return (
-    <nav className='navbar'>
-      {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
-      <ul className='menu'>
-        <li><NavLink to="home">Home</NavLink></li>
-        <li><NavLink to="/contact">Contact</NavLink></li>
-        <li><NavLink to="/favs">Favorites</NavLink></li>
-      </ul>
-      {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      <button onClick={changeTheme}>Change theme</button>
-    </nav>
-  )
-}
+    <header className={`header ${state.theme ? 'dark' : 'light'}`}>
+      <Link to="/">
+        <img src={logo} alt="Logo" className='logo' />
+      </Link>
+      <nav className='navbar'>
+        <ul className='menu'>
+          <li><NavLink to="/home">Home</NavLink></li>
+          <li><NavLink to="/contact">Contact</NavLink></li>
+          <li><NavLink to="/favs">Favorites</NavLink></li>
+        </ul>
+      </nav>
+      <button onClick={changeTheme} className="theme-button">
+      {state.theme ? '🌙' : '☀️'} {/* Cambia el icono en función del tema */}
+       </button> 
+    </header>
+  );
+  
+};
 
-export default Navbar
+export default Header;
