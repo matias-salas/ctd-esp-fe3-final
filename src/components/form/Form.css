@@ -4,7 +4,7 @@
     color: #a4bb03;
     padding: 20px;
     border-radius: 10px;
-    max-width: 400px;
+    min-width: 500px;
     margin: 0 auto;
   }
   
