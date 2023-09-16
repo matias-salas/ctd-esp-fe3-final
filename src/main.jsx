@@ -6,13 +6,21 @@ import { BrowserRouter } from 'react-router-dom';
 import { ContextProvider } from './context/Context'
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-  <ContextProvider>
-      <App/>
-  </ContextProvider>
-  </BrowserRouter>
+return (
+  <div className={`app ${darkMode ? "dark" : "light"}`}>
+      <Navbar/>
+      <main>
+        <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/home' element={<Home/>}/>
+            <Route path='/recipe/:id' element={<Detail/>}/>
+            <Route path='/contact' element={<Contact />}/>
+            <Route path='/favs' element={<Favs/>}/>          
+          </Routes>
+        </main>
+      <Footer/>
+  </div>
+);
 
-)
 
-
+export default App;
