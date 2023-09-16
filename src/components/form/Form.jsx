@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useAppContext } from '../../hooks/useAppContext'; // Importa el hook de contexto
 import "./Form.css";
 
 const Form = () => {
+  const { state } = useAppContext(); // Obtén el valor del tema desde el contexto
   const [form, setForm] = useState({ name: "", email: "" });
   const [msgSended, setMsgSended] = useState("");
 
@@ -38,20 +40,23 @@ const Form = () => {
     });
   };
 
+  const formThemeClass = state.theme ? 'form-container-dark' : 'form-container'; // Determina la clase CSS según el tema
+  
+  
   return (
-    <div className="form-container">
-      <form onSubmit={formHandler} className="form-contact">
-        <div className="input-form-container">
+    <div className={`form-container ${formThemeClass}`}> {/* Aplica la clase CSS al contenedor del formulario */}
+      <form onSubmit={formHandler} className={`form-contact ${formThemeClass}`}> {/* Aplica la clase CSS al formulario */}
+        <div className={`input-form-container ${formThemeClass}`}> {/* Aplica la clase CSS a los elementos del formulario */}
           <label htmlFor="name">Nombre Completo</label>
           <input type="text" name="name" onChange={changed} value={form.name} />
         </div>
-        <div className="input-form-container">
+        <div className={`input-form-container ${formThemeClass}`}> {/* Aplica la clase CSS a los elementos del formulario */}
           <label htmlFor="email">Correo Electrónico</label>
           <input type="email" name="email" onChange={changed} value={form.email} />
         </div>
-        <input type="submit" value="Enviar" className="btn-send" />
+        <input type="submit" value="Enviar" className={`btn-send ${formThemeClass}`} /> {/* Aplica la clase CSS al botón */}
       </form>
-      {msgSended && <h3 className="message">{msgSended}</h3>}
+      {msgSended && <h3 className={`message ${formThemeClass}`}>{msgSended}</h3>} {/* Aplica la clase CSS al mensaje */}
     </div>
   );
 };
