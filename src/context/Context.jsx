@@ -9,8 +9,8 @@ export const initialState = {
     favs: localStorage.favs ? JSON.parse(localStorage.favs) : [],
   };
   
-// Defino un componente proveedor llamado AppProvider que toma "children" como prop.
-export const AppProvider = ({ children }) => {
+// Defino un componente proveedor llamado Context que toma "children" como prop.
+export const Context = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [users, setUsers] = useState([]);
     const [dentist, setDentist] = useState([]);
