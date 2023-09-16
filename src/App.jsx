@@ -1,14 +1,18 @@
 
-import Footer from "./Components/Footer";
-import Navbar from "./Components/Navbar";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import Routing from "./routes/Routing";
 
 
 function App() {
   return (
-      <div className="App">
-          <Navbar/>
-          <Footer/>
-      </div>
+    <>
+      <Header />
+      <main>
+        <Routing />
+      </main>
+      <Footer />
+    </>
   );
 }
 
