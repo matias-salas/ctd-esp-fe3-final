@@ -1,18 +1,16 @@
 import React, { createContext, useEffect, useReducer, useState } from 'react';
-import { GetUsers } from '../helpers/GetUsers';
 
+// Crea un contexto llamado AppContext.
 export const AppContext = createContext();
 
+// Defino un estado inicial para la aplicación que incluye el tema y los favoritos del usuario.
 export const initialState = { theme: !!localStorage.theme, favs: localStorage.favs ? JSON.parse(localStorage.favs) : [] }
 
+// Defino un componente proveedor llamado AppProvider que toma "children" como prop.
 export const AppProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [users, setUsers] = useState([]);
     const [dentist, setDentist] = useState([]);
-
-    useEffect(() => {
-        GetUsers("https://jsonplaceholder.typicode.com/users", setLoading, setUsers);
-    }, []);
 
     const getDentist = async (id) => {
         try {
@@ -35,15 +33,32 @@ export const AppProvider = ({ children }) => {
             case 'remove':
                 return { ...state, favs: state.favs.filter(dentist => dentist.id !== action.payload.id) };
             default:
-                return state; // Return the unchanged state for unknown actions
+                return state;
         }
     }
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const validateForm = (params) => {
-        return ValidateForm(params);
+        // Implementa la función ValidateForm aquí o importa la función si se encuentra en otro archivo.
+        // return ValidateForm(params);
     }
+
+    // Integra la función GetUsers en el useEffect del componente.
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                setLoading(true);
+                const res = await fetch("https://jsonplaceholder.typicode.com/users");
+                const data = await res.json();
+                setUsers(data);
+                setLoading(false);
+            } catch (error) {
+                throw new Error(`Hubo un error al realizar la consulta a la API: https://jsonplaceholder.typicode.com/users \n${error}`);
+            }
+        };
+        fetchUsers();
+    }, []);
 
     return (
         <AppContext.Provider value={{ users, loading, setLoading, state, dispatch, getDentist, setDentist, dentist, validateForm }}>
@@ -51,4 +66,3 @@ export const AppProvider = ({ children }) => {
         </AppContext.Provider>
     );
 };
-

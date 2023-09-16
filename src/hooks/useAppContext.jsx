@@ -1,12 +1,18 @@
 import { useContext } from "react";
+// Importa el contexto AppContext desde otro archivo (probablemente un contexto de React).
 import { AppContext } from "../context/AppContext";
 
+// Defino una función llamada useAppContext que es un hook personalizado.
 export const useAppContext = () => {
-    const context = useContext(AppContext)
+    // Utiliza el hook useContext para obtener el contexto de AppContext.
+    const context = useContext(AppContext);
 
+    // Verifica si el contexto es nulo.
     if (!context) {
-        throw new Error("useAppContext debe usarse dentro de un proveedor AppContext")
+        // Si el contexto es nulo, lanza un error indicando que useAppContext debe utilizarse dentro de un proveedor AppContext.
+        throw new Error("useAppContext debe usarse dentro de un proveedor AppContext");
     }
 
-    return context
+    // Devuelve el contexto obtenido.
+    return context;
 }

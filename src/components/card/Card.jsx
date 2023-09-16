@@ -1,4 +1,5 @@
 import React from "react";
+import { useAppContext } from '../../hooks/useAppContext'
 import { Link } from 'react-router-dom'
 import dentista from '../../assets/img/doctor.jpg'
 import { BiHeart, BiSolidHeart } from 'react-icons/bi'
@@ -6,6 +7,7 @@ import './Card.css'
 
 
 const Card = ({ name, username, id, email }) => {
+  const { users, state, dispatch } = useAppContext()
 
   const isFav = (id) => state.favs.some(favDentist => favDentist.id === id)
 

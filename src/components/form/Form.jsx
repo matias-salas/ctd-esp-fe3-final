@@ -1,52 +1,57 @@
 import React, { useState } from "react";
-import { useForm } from '../../hooks/useForm'
-import { ValidateForm } from '../../helpers/ValidateForm'
 import './Form.css'
 
 const Form = () => {
-  const { form, changed } = useForm()
-  const [msgSended, setMsgSended] = useState('not-sended')
-  const [sended, setSended] = useState(false)
+  const [form, setForm] = useState({ name: "", email: "" });
+  const [msgSended, setMsgSended] = useState('');
+
+  const ValidateForm = (params) => {
+    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!params.name || params.name.length < 3) {
+      setMsgSended('Por favor, introduce un nombre válido (mínimo 3 caracteres).');
+      return false;
+    } else if (!params.email || !regexEmail.test(params.email)) {
+      setMsgSended('Por favor, introduce un correo electrónico válido.');
+      return false;
+    } else {
+      setMsgSended(`Gracias ${form.name}!, formulario enviado.`);
+      return true;
+    }
+  };
 
   const formHandler = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    let msgToSend = form
-
-    if (ValidateForm(msgToSend)) {
-      setMsgSended(`Gracias ${msgToSend.name}, te contactaremos cuando antes vía mail!`)
-      setSended(true)
+    if (ValidateForm(form)) {
       setTimeout(() => {
-        setSended(false)
-      }, 8000)
-    } else {
-      setMsgSended('Ha ocurrido un error! Los datos ingresados no son correctos!')
-      setSended(true)
-      setTimeout(() => {
-        setSended(false)
-      }, 8000)
+        setMsgSended('');
+      }, 8000);
     }
+  };
 
-  }
+  const changed = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
 
   return (
     <>
       <form onSubmit={formHandler} className="form-contact">
         <div className="input-form-container">
           <label htmlFor="name"></label>
-          <input type="text" name="name" onChange={changed} placeholder="Nombre Completo" />
+          <input type="text" name="name" onChange={changed} value={form.name} placeholder="Nombre Completo" />
         </div>
         <div className="input-form-container">
           <label htmlFor="email"></label>
-          <input type="email" name="email" onChange={changed} placeholder="Correo Electronico" />
+          <input type="email" name="email" onChange={changed} value={form.email} placeholder="Correo Electrónico" />
         </div>
         <input type="submit" value="Enviar" className="btn-send" />
       </form>
-      {sended ?
-        <h3>{msgSended}</h3>
-        :
-        null
-      }
+      {msgSended && <h3>{msgSended}</h3>}
     </>
   );
 };
