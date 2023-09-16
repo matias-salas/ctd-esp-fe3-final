@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAppContext } from '../../hooks/useAppContext'; // Importa el hook de contexto
+import { useAppContext } from '../../hooks/useContext'; // Importa el hook de contexto
 import "./Form.css";
 
 const Form = () => {

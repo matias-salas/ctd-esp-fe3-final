@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppContext } from '../../hooks/useAppContext'
+import { useAppContext } from '../../hooks/useContext'
 import { Link } from 'react-router-dom'
 import dentista from '../../assets/img/doctor.jpg'
 import { BiHeart, BiSolidHeart } from 'react-icons/bi'

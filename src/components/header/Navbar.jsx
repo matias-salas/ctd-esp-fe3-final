@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../assets/img/kundalini_circle.png';
+import logo from '../../assets/img/57978.jpg';
 import { useAppContext } from '../../hooks/useContext';
 import './Navbar.css';
 
@@ -9,7 +9,6 @@ const Header = () => {
 
   const changeTheme = () => {
     dispatch({ type: 'toggle' }); // Using the action type directly as a string
-    console.log(JSON.stringify(!state.theme));
     localStorage.theme = JSON.stringify(!state.theme);
   };
 
@@ -24,13 +23,10 @@ const Header = () => {
           <li><NavLink to="/contact">Contact</NavLink></li>
           <li><NavLink to="/favs">Favorites</NavLink></li>
         </ul>
+        <button onClick={changeTheme}>Change theme</button>
       </nav>
-      <button onClick={changeTheme} className="theme-button">
-      {state.theme ? '🌙' : '☀️'} {/* Cambia el icono en función del tema */}
-       </button> 
     </header>
   );
-  
 };
 
 export default Header;

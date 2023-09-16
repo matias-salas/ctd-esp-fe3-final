@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useAppContext } from '../hooks/useAppContext'
+import { useAppContext } from '../hooks/useContext'
 import { useParams } from 'react-router-dom'
 import Card from '../components/card/Card'
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppContext } from '../hooks/useAppContext'
+import { useAppContext } from '../hooks/useContext'
 import Card from "../components/card/Card";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context

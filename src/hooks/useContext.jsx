@@ -1,6 +1,6 @@
 import { useContext } from "react";
 // Importa el contexto AppContext desde otro archivo (probablemente un contexto de React).
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../context/Context";
 
 // Defino una función llamada useAppContext que es un hook personalizado.
 export const useAppContext = () => {
