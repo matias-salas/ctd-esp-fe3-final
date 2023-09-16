@@ -9,6 +9,7 @@ const Header = () => {
 
   const changeTheme = () => {
     dispatch({ type: 'toggle' }); // Using the action type directly as a string
+    console.log(JSON.stringify(!state.theme));
     localStorage.theme = JSON.stringify(!state.theme);
   };
 

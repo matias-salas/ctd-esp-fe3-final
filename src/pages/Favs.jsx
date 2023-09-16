@@ -23,7 +23,7 @@ export function Favs() {
             <h2>No hay Favoritos</h2>}
         </section>
         :
-        <h2>Cargando dentistas...</h2>
+        <h2>Cargando ...</h2>
       }
     </main>
   );

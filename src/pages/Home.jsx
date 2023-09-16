@@ -19,7 +19,7 @@ export function Home() {
           })}
         </section>
         :
-        <h2>Cargando dentistas...</h2>
+        <h2>Cargando ...</h2>
       }
     </main>
   )

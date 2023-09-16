@@ -4,8 +4,11 @@ import React, { createContext, useEffect, useReducer, useState } from 'react';
 export const AppContext = createContext();
 
 // Defino un estado inicial para la aplicación que incluye el tema y los favoritos del usuario.
-export const initialState = { theme: !!localStorage.theme, favs: localStorage.favs ? JSON.parse(localStorage.favs) : [] }
-
+export const initialState = {
+    theme: localStorage.getItem("theme") === "true",
+    favs: localStorage.favs ? JSON.parse(localStorage.favs) : [],
+  };
+  
 // Defino un componente proveedor llamado AppProvider que toma "children" como prop.
 export const AppProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
