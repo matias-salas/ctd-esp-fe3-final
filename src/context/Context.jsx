@@ -10,7 +10,7 @@ export const initialState = {
   };
   
 // Defino un componente proveedor llamado Context que toma "children" como prop.
-export const Context = ({ children }) => {
+export const ContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [users, setUsers] = useState([]);
     const [dentist, setDentist] = useState([]);
