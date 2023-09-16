@@ -1,0 +1,34 @@
+/* Establece el tamaño mínimo de la ventana al 100vh */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Crea un contenedor principal para todo el contenido */
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+  }
+  
+  /* Establece el header para que tenga una altura fija o flexible, según tus necesidades */
+  header {
+    background-color: #333; /* Cambia esto según tu estilo */
+    color: white; /* Cambia esto según tu estilo */
+    padding: 20px;
+  }
+  
+  /* Establece el contenido principal (main) para que llene el espacio restante */
+  .main-content {
+    flex-grow: 1;
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+  }
+  
+  /* Establece el footer para que tenga una altura fija o flexible, según tus necesidades */
+  footer {
+    background-color: #333; /* Cambia esto según tu estilo */
+    color: white; /* Cambia esto según tu estilo */
+    padding: 20px;
+  }
+  

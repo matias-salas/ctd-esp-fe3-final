@@ -39,10 +39,6 @@ export const AppProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
-    const validateForm = (params) => {
-        // Implementa la función ValidateForm aquí o importa la función si se encuentra en otro archivo.
-        // return ValidateForm(params);
-    }
 
     // Integra la función GetUsers en el useEffect del componente.
     useEffect(() => {
@@ -61,7 +57,7 @@ export const AppProvider = ({ children }) => {
     }, []);
 
     return (
-        <AppContext.Provider value={{ users, loading, setLoading, state, dispatch, getDentist, setDentist, dentist, validateForm }}>
+        <AppContext.Provider value={{ users, loading, setLoading, state, dispatch, getDentist, setDentist, dentist }}>
             {children}
         </AppContext.Provider>
     );

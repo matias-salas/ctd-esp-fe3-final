@@ -1,6 +1,50 @@
-.form-contact {
+/* Form.css */
+.form-container {
+    background-color: #283747;
+    color: #a4bb03;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-contact {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+  }
+  
+  .input-form-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  label {
+    font-size: 16px;
+  }
+  
+  input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .btn-send {
+    background-color: #a4bb03;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .message {
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+  
