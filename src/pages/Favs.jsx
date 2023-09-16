@@ -4,7 +4,7 @@ import Card from "../components/card/Card";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
-export function Favs() {
+const Favs = () => {
   const { state, loading } = useAppContext()
 
   return (
@@ -28,3 +28,5 @@ export function Favs() {
     </main>
   );
 };
+
+export default Favs;

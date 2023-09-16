@@ -4,7 +4,8 @@ import Form from '../components/form/Form'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
-export function Contact() {
+const Contact = () => {
+
   const { state } = useAppContext()
 
   return (
@@ -17,3 +18,5 @@ export function Contact() {
     </main>
   )
 }
+
+export default Contact

@@ -4,7 +4,7 @@ import Card from '../components/card/Card'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
-export function Home() {
+const Home = () => {
   const { users, loading, state } = useAppContext()
   return (
     <main className={`${state.theme ? 'dark' : ''} main`} >
@@ -24,3 +24,5 @@ export function Home() {
     </main>
   )
 }
+
+export default Home

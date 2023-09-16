@@ -1,7 +1,11 @@
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 import { Route, Routes } from 'react-router-dom'
-import { Home, Favs, Detail, Contact } from './pages'
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
+import Contact from "./pages/Contact";
+import Favs from "./pages/Favs";
+
 
 import "./App.css"; // Asegúrate de importar tu archivo CSS aquí
 

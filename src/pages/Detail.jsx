@@ -6,7 +6,7 @@ import Card from '../components/card/Card'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
-export function Detail() {
+const Detail = () => {
   const { loading, state, setLoading } = useAppContext()
   const [dentist, setDentist] = useState([])
   const params = useParams()
@@ -44,3 +44,5 @@ export function Detail() {
     </main>
   )
 }
+
+export default Detail
